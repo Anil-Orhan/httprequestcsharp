@@ -15,3 +15,10 @@ P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\obj\Debug\netcoreapp3.1\SYNCTE
 P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\JWT.dll
 P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\obj\Debug\netcoreapp3.1\SYNCTEKNOLOJITASK1.csproj.CopyComplete
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+P:\Projeler\SYNCTEKNOLOJITASK1\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

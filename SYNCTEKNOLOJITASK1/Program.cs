@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -14,9 +16,11 @@ namespace SYNCTEKNOLOJITASK1
     {
         private static string APIUrl = "https://apiv2.entegrabilisim.com/api/user/token/obtain/";
         private static string APIUrlProducts = "https://apiv2.entegrabilisim.com/product/page=1/";
+        private static string testApi = "https://aoprojectslive.xyz/api/users/getall";
 
-        private static string username = "apiis@entegrabilisim.com";
-        private static string password = "test123.";
+
+        private static string username = "apitestv2@entegrabilisim.com";
+        private static string password = "apitestv2";
         public static string token = "";
         static void Main(string[] args)
         {
@@ -24,7 +28,8 @@ namespace SYNCTEKNOLOJITASK1
          
             Console.Title="SYNCTEKNOLOJI";
             GetToken().Wait();
-          //  GetProducts().Wait();
+       
+
 
 
 
@@ -33,25 +38,35 @@ namespace SYNCTEKNOLOJITASK1
         {
             using (var client = new HttpClient())
             {
+
                
-
-            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
-                client.DefaultRequestHeaders.Accept.Add(contentType);
-                client.DefaultRequestHeaders.Add("Authorization", "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxMzA4MzE2LCJqdGkiOiIzYzI0MTgxOTM4ZmI0NDZkODYzMDljY2RjYTc5NjQyZCIsInVzZXJfaWQiOjEzNH0.AxHxJoP5CFjt2tEuUEM1Pnp_RYAR6vsCj1VNGTbXZ9U");
+               // var personJSON = JsonSerializer.Serialize();
+               // var buffer = System.Text.Encoding.UTF8.GetBytes(personJSON);
+               // var byteContent = new ByteArrayContent(buffer);
                 
-                var response = await client.GetStringAsync(APIUrlProducts);
-                
-               // var result = JsonSerializer.Serialize(jsonstring);
+                client.DefaultRequestHeaders.Authorization= new AuthenticationHeaderValue(
+                    "Bearer", Convert.ToBase64String(
+                        System.Text.Encoding.UTF8.GetBytes(
+                            $"{"JWT "+token}")));
 
-                Console.WriteLine("--------------------------------------");
-                Console.WriteLine("-----------------PRODUCTS---------------------");
-                Console.WriteLine(response
-                    );
+                var response = await client.GetAsync(APIUrlProducts);
+                var jsonstring = await response.Content.ReadAsStringAsync();
+                
+
+
+                
+                Console.WriteLine( jsonstring);
+
+
 
 
 
             }
         }
+
+
+
+
         static async Task GetToken()
         {
             using (var client = new HttpClient())
@@ -68,11 +83,30 @@ namespace SYNCTEKNOLOJITASK1
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await client.PostAsync(APIUrl, byteContent);
                 var jsonstring = await response.Content.ReadAsStringAsync();
+                var jsonObject=JsonConvert.DeserializeObject<dynamic>(jsonstring);
                 TokenResult result = JsonSerializer.Deserialize<TokenResult>(jsonstring);
+                Console.WriteLine("ACCESS TOKEN : " + result.access);
+               // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "JWT "+jsonObject.access.ToString());
+               Console.WriteLine("------------------------------");
+               Console.WriteLine("Access: "+result.access);
+               Console.WriteLine("------------------------------");
+               Console.WriteLine(result.refresh);
+              
+                client.DefaultRequestHeaders.Add("Authorization", "JWT " + result.access);
+                 response.Headers.Add("Authorization", "JWT " + result.access);
+                response= await client.GetAsync("http://apiv2.entegrabilisim.com/product/page=1/");
+                response.Headers.WwwAuthenticate.Add(new AuthenticationHeaderValue("Bearer", "JWT "+result.access));
+              
+
+               // response.EnsureSuccessStatusCode();
+                string info = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("\r\n\r\n");
+                Console.WriteLine(info);
 
               
+
                 token = result.access;
-                 Console.WriteLine("ACCESS TOKEN : "+result.access);
+                 
 
               
 
@@ -85,6 +119,8 @@ namespace SYNCTEKNOLOJITASK1
         {
             public string Authorization { get; set; }
         }
+
+       
         public class TokenResult
         {
             public string refresh { get; set; }
@@ -101,5 +137,4 @@ namespace SYNCTEKNOLOJITASK1
         }
     }
 
- 
-}
+} 
