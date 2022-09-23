@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1fnwdaj3a4N9dT5c/+Y/TNpz8JsRh04CKmd9ixaxqV0Y5CSRhm76e7zKJIrwKJnmkwwFM4XsHLRbDW8QKQ8YFw==",
+  "dgSpecHash": "C/zeXbzYcWw+bNswoDHOKtmiT2nOlbw4w5TrUEp/BWJLfY0sKzhlENUMsauaAqLb2DoCpkPuLygUU7wR/Xqdqw==",
   "success": true,
-  "projectFilePath": "P:\\Projeler\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
+  "projectFilePath": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anilo\\.nuget\\packages\\jwt\\9.0.3\\jwt.9.0.3.nupkg.sha512",
     "C:\\Users\\anilo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.10\\microsoft.aspnetcore.authentication.jwtbearer.3.1.10.nupkg.sha512",

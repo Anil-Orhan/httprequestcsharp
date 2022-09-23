@@ -22,40 +22,58 @@ namespace SYNCTEKNOLOJITASK1
         private static string username = "apitestv2@entegrabilisim.com";
         private static string password = "apitestv2";
         public static string token = "";
+        public static List<Product> _productsAll;
         static void Main(string[] args)
         {
             Console.ForegroundColor= ConsoleColor.DarkCyan;
          
             Console.Title="SYNCTEKNOLOJI";
             GetToken().Wait();
-       
+            GetProducts().Wait();
+
 
 
 
 
         }
+
+
+        public static void WrittenProducts(List<Product> products)
+        {
+            
+            Console.WriteLine(products);
+           /* foreach (var item in _productsAll)
+            {
+                Console.WriteLine(item.name);
+            }*/
+        }
+
         static async Task GetProducts()
         {
             using (var client = new HttpClient())
             {
 
-               
-               // var personJSON = JsonSerializer.Serialize();
-               // var buffer = System.Text.Encoding.UTF8.GetBytes(personJSON);
-               // var byteContent = new ByteArrayContent(buffer);
-                
-                client.DefaultRequestHeaders.Authorization= new AuthenticationHeaderValue(
-                    "Bearer", Convert.ToBase64String(
-                        System.Text.Encoding.UTF8.GetBytes(
-                            $"{"JWT "+token}")));
+
+                // var personJSON = JsonSerializer.Serialize();
+                // var buffer = System.Text.Encoding.UTF8.GetBytes(personJSON);
+                // var byteContent = new ByteArrayContent(buffer);
+
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Authorization", "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxNzM0NDUyLCJqdGkiOiJlYzIwZjgyNzE2ZmE0NDIxODllMGYwMzI1YmYyOWExYiIsInVzZXJfaWQiOjEzNH0.obE5fg1I37faDnRr-AdoQXw36Gpqy0RIBDIfN57B3SE");
+                client.DefaultRequestHeaders.Add("User-Agent", "MSIE 6.0");
 
                 var response = await client.GetAsync(APIUrlProducts);
                 var jsonstring = await response.Content.ReadAsStringAsync();
-                
 
 
-                
-                Console.WriteLine( jsonstring);
+                  var products = JsonConvert.DeserializeObject<AllProducts>(jsonstring);
+                  Console.WriteLine(products.AllProduct.Count);
+
+                 // WrittenProducts(products);
+
+
+
 
 
 
@@ -64,8 +82,7 @@ namespace SYNCTEKNOLOJITASK1
             }
         }
 
-
-
+      
 
         static async Task GetToken()
         {
@@ -86,22 +103,9 @@ namespace SYNCTEKNOLOJITASK1
                 var jsonObject=JsonConvert.DeserializeObject<dynamic>(jsonstring);
                 TokenResult result = JsonSerializer.Deserialize<TokenResult>(jsonstring);
                 Console.WriteLine("ACCESS TOKEN : " + result.access);
-               // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "JWT "+jsonObject.access.ToString());
-               Console.WriteLine("------------------------------");
-               Console.WriteLine("Access: "+result.access);
-               Console.WriteLine("------------------------------");
-               Console.WriteLine(result.refresh);
-              
-                client.DefaultRequestHeaders.Add("Authorization", "JWT " + result.access);
-                 response.Headers.Add("Authorization", "JWT " + result.access);
-                response= await client.GetAsync("http://apiv2.entegrabilisim.com/product/page=1/");
-                response.Headers.WwwAuthenticate.Add(new AuthenticationHeaderValue("Bearer", "JWT "+result.access));
-              
-
-               // response.EnsureSuccessStatusCode();
+                
                 string info = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("\r\n\r\n");
-                Console.WriteLine(info);
+              
 
               
 
@@ -133,6 +137,19 @@ namespace SYNCTEKNOLOJITASK1
             public string password { get; set; }
 
 
+
+        }
+
+        public class AllProducts
+        {
+
+            public List<Product> AllProduct{ get; set; }
+        }
+        public class Product
+        {
+            public string name { get; set; }
+            public string productCode { get; set; }
+            public long quantity { get; set; }
 
         }
     }

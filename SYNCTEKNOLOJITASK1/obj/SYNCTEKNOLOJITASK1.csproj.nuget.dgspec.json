@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "P:\\Projeler\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj": {}
+    "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj": {}
   },
   "projects": {
-    "P:\\Projeler\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj": {
+    "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\Projeler\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
+        "projectUniqueName": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
         "projectName": "SYNCTEKNOLOJITASK1",
-        "projectPath": "P:\\Projeler\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
+        "projectPath": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
         "packagesPath": "C:\\Users\\anilo\\.nuget\\packages\\",
-        "outputPath": "P:\\Projeler\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1\\obj\\",
+        "outputPath": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
