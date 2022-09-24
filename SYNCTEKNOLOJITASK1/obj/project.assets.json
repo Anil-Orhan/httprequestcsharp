@@ -2736,23 +2736,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anilo\\.nuget\\packages\\": {},
+    "C:\\Users\\Vodases\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
+      "projectUniqueName": "C:\\Users\\Vodases\\Desktop\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
       "projectName": "SYNCTEKNOLOJITASK1",
-      "projectPath": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
-      "packagesPath": "C:\\Users\\anilo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\obj\\",
+      "projectPath": "C:\\Users\\Vodases\\Desktop\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\SYNCTEKNOLOJITASK1.csproj",
+      "packagesPath": "C:\\Users\\Vodases\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vodases\\Desktop\\httprequestcsharp\\SYNCTEKNOLOJITASK1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\anilo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vodases\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2807,7 +2807,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -12,25 +12,27 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace SYNCTEKNOLOJITASK1
 {
-    internal class Program
+    public class Program
     {
         private static string APIUrl = "https://apiv2.entegrabilisim.com/api/user/token/obtain/";
         private static string APIUrlProducts = "https://apiv2.entegrabilisim.com/product/page=1/";
         private static string testApi = "https://aoprojectslive.xyz/api/users/getall";
 
 
-        private static string username = "apitestv2@entegrabilisim.com";
-        private static string password = "apitestv2";
+        private static string username = "apiis@entegrabilisim.com";
+        private static string password = "test123.";
         public static string token = "";
-        public static List<Product> _productsAll;
+        public static Root alldata;
         static void Main(string[] args)
         {
+            Console.BufferHeight = short.MaxValue-1;
+            
             Console.ForegroundColor= ConsoleColor.DarkCyan;
          
             Console.Title="SYNCTEKNOLOJI";
             GetToken().Wait();
             GetProducts().Wait();
-
+          
 
 
 
@@ -38,17 +40,18 @@ namespace SYNCTEKNOLOJITASK1
         }
 
 
-        public static void WrittenProducts(List<Product> products)
+        public static void WrittenProducts()
         {
             
-            Console.WriteLine(products);
-           /* foreach (var item in _productsAll)
+            
+            foreach (var item in alldata.porductList)
             {
                 Console.WriteLine(item.name);
-            }*/
+                
+            }
         }
 
-        static async Task GetProducts()
+      public static  async Task GetProducts()
         {
             using (var client = new HttpClient())
             {
@@ -60,20 +63,18 @@ namespace SYNCTEKNOLOJITASK1
 
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("Authorization", "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcxNzM0NDUyLCJqdGkiOiJlYzIwZjgyNzE2ZmE0NDIxODllMGYwMzI1YmYyOWExYiIsInVzZXJfaWQiOjEzNH0.obE5fg1I37faDnRr-AdoQXw36Gpqy0RIBDIfN57B3SE");
+                client.DefaultRequestHeaders.Add("Authorization", "JWT "+token);
                 client.DefaultRequestHeaders.Add("User-Agent", "MSIE 6.0");
 
                 var response = await client.GetAsync(APIUrlProducts);
                 var jsonstring = await response.Content.ReadAsStringAsync();
-
-
-                  var products = JsonConvert.DeserializeObject<AllProducts>(jsonstring);
-                  Console.WriteLine(products.AllProduct.Count);
-
-                 // WrittenProducts(products);
+            
+               alldata = JsonConvert.DeserializeObject<Root>(jsonstring);
 
 
 
+
+               WrittenProducts();
 
 
 
@@ -140,18 +141,213 @@ namespace SYNCTEKNOLOJITASK1
 
         }
 
-        public class AllProducts
+        public class Picture
         {
-
-            public List<Product> AllProduct{ get; set; }
+            public string picture { get; set; }
         }
-        public class Product
+
+        public class PorductList
+        {
+            public string id { get; set; }
+            public string productCode { get; set; }
+            public string status { get; set; }
+            public string description { get; set; }
+            public string product_type { get; set; }
+            public string barcode { get; set; }
+            public string gtin { get; set; }
+            public string send_api { get; set; }
+            public string name { get; set; }
+            public string brand { get; set; }
+            public string group { get; set; }
+            public string quantity { get; set; }
+            public string currencyType { get; set; }
+            public string kdv_id { get; set; }
+            public string price1 { get; set; }
+            public string price2 { get; set; }
+            public string price3 { get; set; }
+            public string price4 { get; set; }
+            public string price5 { get; set; }
+            public string price6 { get; set; }
+            public string price7 { get; set; }
+            public string price8 { get; set; }
+            public string n11_price { get; set; }
+            public string n11_discountValue { get; set; }
+            public string hb_price { get; set; }
+            public string trendyol_listPrice { get; set; }
+            public string trendyol_salePrice { get; set; }
+            public string eptt_price { get; set; }
+            public string eptt_iskonto { get; set; }
+            public string n11pro_price { get; set; }
+            public string n11pro_discountValue { get; set; }
+            public string amazon_price { get; set; }
+            public string amazon_salePrice { get; set; }
+            public string mizu_price1 { get; set; }
+            public string mizu_price2 { get; set; }
+            public string zebramo_listPrice { get; set; }
+            public string zebramo_salePrice { get; set; }
+            public string farmazon_price { get; set; }
+            public string farmazon_market_price { get; set; }
+            public string farmaBorsaPrice { get; set; }
+            public string farmaborsa_psPrice { get; set; }
+            public string morhipo_listPrice { get; set; }
+            public string morhipo_salePrice { get; set; }
+            public string lidyana_listPrice { get; set; }
+            public string lidyana_salePrice { get; set; }
+            public string pazarama_listPrice { get; set; }
+            public string pazarama_salePrice { get; set; }
+            public string vfmall_listPrice { get; set; }
+            public string vfmall_salePrice { get; set; }
+            public string aliniyor_listPrice { get; set; }
+            public string aliniyor_salePrice { get; set; }
+            public string aliexpress_price { get; set; }
+            public string aliexpress_salePrice { get; set; }
+            public string modanisa_listPrice { get; set; }
+            public string modanisa_salePrice { get; set; }
+            public string bpazar_price1 { get; set; }
+            public string bpazar_price2 { get; set; }
+            public string flo_listPrice { get; set; }
+            public string flo_salePrice { get; set; }
+            public string novadan_price { get; set; }
+            public string needion_listPrice { get; set; }
+            public string needion_salePrice { get; set; }
+            public string bisifirat_listPrice { get; set; }
+            public string bisifirat_salePrice { get; set; }
+            public string iyifiyat_listPrice { get; set; }
+            public string iyifiyat_salePrice { get; set; }
+            public string turkcellpasaj_listPrice { get; set; }
+            public string turkcellpasaj_salePrice { get; set; }
+            public string narwoo_price { get; set; }
+            public string narwoo_salePrice { get; set; }
+            public string joom_price { get; set; }
+            public string joom_msrPrice { get; set; }
+            public string nevade_listPrice { get; set; }
+            public string nevade_salePrice { get; set; }
+            public string yapisepeti_listPrice { get; set; }
+            public string yapisepeti_salePrice { get; set; }
+            public string op1001_listPrice { get; set; }
+            public string op1001_salePrice { get; set; }
+            public string etsy_price { get; set; }
+            public string wish_price { get; set; }
+            public string omnitron_price1 { get; set; }
+            public string omnitron_price2 { get; set; }
+            public string zoodmall_price { get; set; }
+            public string buying_price { get; set; }
+            public string supplier { get; set; }
+            public string date_change { get; set; }
+            public string date_add { get; set; }
+            public string hb_sku { get; set; }
+            public string mpn { get; set; }
+            public string alan1 { get; set; }
+            public string alan2 { get; set; }
+            public string alan3 { get; set; }
+            public string alan4 { get; set; }
+            public string alan5 { get; set; }
+            public List<Variatio> variatios { get; set; }
+            public List<Picture> pictures { get; set; }
+        }
+
+        public class Root
+        {
+            public List<PorductList> porductList { get; set; }
+        }
+
+        public class Variatio
+        {
+            public string id { get; set; }
+            public string productCode { get; set; }
+            public string barcode { get; set; }
+            public string gtin { get; set; }
+            public string quantity { get; set; }
+            public string price { get; set; }
+            public string hb_st_sku { get; set; }
+            public string hb_sku { get; set; }
+            public string price1 { get; set; }
+            public string price2 { get; set; }
+            public string price3 { get; set; }
+            public string price4 { get; set; }
+            public string price5 { get; set; }
+            public string price6 { get; set; }
+            public string price7 { get; set; }
+            public string price8 { get; set; }
+            public string n11_price { get; set; }
+            public string n11_discountValue { get; set; }
+            public string hb_price { get; set; }
+            public string trendyol_listPrice { get; set; }
+            public string trendy_price { get; set; }
+            public string eptt_price { get; set; }
+            public string eptt_iskonto { get; set; }
+            public string n11pro_price { get; set; }
+            public string n11pro_discountValue { get; set; }
+            public string amazon_price { get; set; }
+            public string amazon_salePrice { get; set; }
+            public string mizu_price1 { get; set; }
+            public string mizu_price2 { get; set; }
+            public string zebramo_listPrice { get; set; }
+            public string zebramo_salePrice { get; set; }
+            public string farmazon_price { get; set; }
+            public string farmazon_market_price { get; set; }
+            public string farmaBorsaPrice { get; set; }
+            public string farmaborsa_psPrice { get; set; }
+            public string morhipo_listPrice { get; set; }
+            public string morhipo_price { get; set; }
+            public string lidyana_listPrice { get; set; }
+            public string lidyana_salePrice { get; set; }
+            public string pazarama_listPrice { get; set; }
+            public string pazarama_salePrice { get; set; }
+            public string vfmall_listPrice { get; set; }
+            public string vfmall_salePrice { get; set; }
+            public string aliniyor_listPrice { get; set; }
+            public string aliniyor_salePrice { get; set; }
+            public string aliexpress_price { get; set; }
+            public string aliexpress_salePrice { get; set; }
+            public string modanisa_listPrice { get; set; }
+            public string modanisa_price { get; set; }
+            public string bpazar_price1 { get; set; }
+            public string bpazar_price2 { get; set; }
+            public string flo_listPrice { get; set; }
+            public string flo_salePrice { get; set; }
+            public string novadan_price { get; set; }
+            public string needion_listPrice { get; set; }
+            public string needion_salePrice { get; set; }
+            public string bisifirat_listPrice { get; set; }
+            public string bisifirat_salePrice { get; set; }
+            public string iyifiyat_listPrice { get; set; }
+            public string iyifiyat_salePrice { get; set; }
+            public string turkcellpasaj_listPrice { get; set; }
+            public string turkcellpasaj_salePrice { get; set; }
+            public string narwoo_price { get; set; }
+            public string narwoo_salePrice { get; set; }
+            public string joom_price { get; set; }
+            public string joom_msrPrice { get; set; }
+            public string nevade_listPrice { get; set; }
+            public string nevade_salePrice { get; set; }
+            public string yapisepeti_listPrice { get; set; }
+            public string yapisepeti_salePrice { get; set; }
+            public string op1001_listPrice { get; set; }
+            public string op1001_salePrice { get; set; }
+            public string etsy_price { get; set; }
+            public string wish_price { get; set; }
+            public string omnitron_price1 { get; set; }
+            public string omnitron_price2 { get; set; }
+            public string zoodmall_price { get; set; }
+            public string buying_price { get; set; }
+            public string itemdim1code { get; set; }
+            public string itemdim2code { get; set; }
+            public List<VariationSpec> variationSpec { get; set; }
+            public List<VariationPicture> variation_pictures { get; set; }
+        }
+
+        public class VariationPicture
+        {
+            public string url { get; set; }
+        }
+
+        public class VariationSpec
         {
             public string name { get; set; }
-            public string productCode { get; set; }
-            public long quantity { get; set; }
-
+            public string value { get; set; }
         }
+
     }
 
 } 
