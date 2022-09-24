@@ -70,3 +70,13 @@ C:\Users\Vodases\Desktop\httprequestcsharp\SYNCTEKNOLOJITASK1\obj\Debug\netcorea
 C:\Users\Vodases\Desktop\httprequestcsharp\SYNCTEKNOLOJITASK1\obj\Debug\netcoreapp3.1\SYNCTEKNOLOJITASK1.dll
 C:\Users\Vodases\Desktop\httprequestcsharp\SYNCTEKNOLOJITASK1\obj\Debug\netcoreapp3.1\SYNCTEKNOLOJITASK1.pdb
 C:\Users\Vodases\Desktop\httprequestcsharp\SYNCTEKNOLOJITASK1\obj\Debug\netcoreapp3.1\SYNCTEKNOLOJITASK1.genruntimeconfig.cache
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\System.Data.SQLite.Linq.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\DataAccess.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\DataAccess.pdb
+C:\Users\anilo\Desktop\syncentegratask\httprequestcsharp\SYNCTEKNOLOJITASK1\bin\Debug\netcoreapp3.1\Entities.pdb

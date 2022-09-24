@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1dZwV7/eSFUFqTtK0hZDW8H+qmXf18VC7N6K7TZ9rCgyZaV9gm//YRNiEEPADcZnjr/+6qpIIlbYgFne9pBmlg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\anilo\\Desktop\\syncentegratask\\httprequestcsharp\\DataAccess\\DataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\anilo\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.116\\stub.system.data.sqlite.core.netstandard.1.0.116.nupkg.sha512"
+  ],
+  "logs": []
+}
