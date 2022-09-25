@@ -39,33 +39,35 @@ namespace SYNCTEKNOLOJITASK1
             GetProducts().Wait();
 
 
-            // TruncateDb();
-            /* foreach (var item in GetTop5Products())
-              {
-                  AddData(name:item.name,productCode:item.productCode,quantity:Convert.ToInt64(item.quantity));
-                  Console.WriteLine(@"Product Added! --> ID: {0} , NAME : {1} ",item.id,item.name);
+            //Db Oluşturma ve API'den ilk 5 datayı çekme
+           // LocalDbOperations.CreateDatabaseAndTable();
 
-              }*/
 
-            Console.WriteLine("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            LocalDBContext.CreateDatabaseAndTable();
-            LocalDBContext.SelectData();
-            Console.WriteLine("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-           // LocalDBContext.AddData(name:"Test",productCode:"12121",quantity:65);
-            LocalDBContext.SelectData();
-            Console.WriteLine("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            LocalDBContext.DeleteData(58);
-            Console.WriteLine("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            LocalDBContext.SelectData();
-            Console.WriteLine("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-            LocalDBContext.SearchData("Test");
-         
+            //Tüm Ürünler
+            // LocalDbOperations.SelectData();
+
+            //ID ile Ürün Getirme
+            // LocalDbOperations.GetProductByID(15);
 
 
 
 
+            //Ürün Ekleme
+            //3 Parametre ile name - productCode - quantity
+            // LocalDbOperations.AddData(name:"Colgate 360 White Diş Macunu",productCode:"101223695",quantity:950);
 
 
+            //Ürün Silme
+
+            // LocalDbOperations.DeleteData();
+
+
+            //Ürün Arama
+            // LocalDbOperations.SearchData();
+
+
+            //ÜRÜN Güncelle
+            //    LocalDbOperations.UpdateProduct();
 
         }
 
@@ -86,11 +88,10 @@ namespace SYNCTEKNOLOJITASK1
                     new MediaTypeWithQualityHeaderValue("application/json"));
                 client.DefaultRequestHeaders.Add("Authorization", "JWT "+token);
                 client.DefaultRequestHeaders.Add("User-Agent", "MSIE 6.0");
-
                 var response = await client.GetAsync(APIUrlProducts);
                 var jsonstring = await response.Content.ReadAsStringAsync();
             
-               LocalDBContext.alldata = JsonConvert.DeserializeObject<Root>(jsonstring);
+               LocalDbOperations.Alldata = JsonConvert.DeserializeObject<Root>(jsonstring);
             }
         }
 
@@ -112,11 +113,11 @@ namespace SYNCTEKNOLOJITASK1
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                 var response = await client.PostAsync(APIUrl, byteContent);
                 var jsonstring = await response.Content.ReadAsStringAsync();
-                var jsonObject=JsonConvert.DeserializeObject<dynamic>(jsonstring);
+               
                 TokenResult result = JsonSerializer.Deserialize<TokenResult>(jsonstring);
-                Console.WriteLine("ACCESS TOKEN : " + result.access);
+     
                 
-                string info = await response.Content.ReadAsStringAsync();
+              
               
 
               
